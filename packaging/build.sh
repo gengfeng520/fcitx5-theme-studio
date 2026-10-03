@@ -8,7 +8,10 @@ mkdir -p "$stage/DEBIAN" "$stage/usr/share/fcitx5-theme-studio/assets" "$stage/u
 cp "$project_dir/studio.py" "$project_dir/theme_engine.py" "$project_dir/library_store.py" "$stage/usr/share/fcitx5-theme-studio/"
 cp "$project_dir/assets/"*.svg "$stage/usr/share/fcitx5-theme-studio/assets/"
 cp "$project_dir/assets/icon.svg" "$stage/usr/share/icons/hicolor/scalable/apps/fcitx5-theme-studio.svg"
-cp "$project_dir/LICENSE" "$project_dir/README.md" "$project_dir/USER_GUIDE.md" "$project_dir/preview-day.png" "$stage/usr/share/doc/fcitx5-theme-studio/"
+cp "$project_dir/LICENSE" "$project_dir/README.md" "$project_dir/USER_GUIDE.md" "$stage/usr/share/doc/fcitx5-theme-studio/"
+if [ -f "$project_dir/preview-day.png" ]; then
+    cp "$project_dir/preview-day.png" "$stage/usr/share/doc/fcitx5-theme-studio/"
+fi
 cat > "$stage/DEBIAN/control" <<'CONTROL'
 Package: fcitx5-theme-studio
 Version: 0.3.1
